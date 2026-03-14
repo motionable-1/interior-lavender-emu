@@ -4,7 +4,7 @@ import {
   Sequence,
   Artifact,
   useCurrentFrame,
-  Audio,
+  Audio as RemotionAudio,
   interpolate,
 } from "remotion";
 import {
@@ -164,7 +164,7 @@ export const Main: React.FC = () => {
       </TransitionSeries>
 
       {/* Background music - fade in */}
-      <Audio
+      <RemotionAudio
         src={MUSIC_URL}
         volume={(f) =>
           interpolate(f, [0, 30, 600, 655], [0, 0.35, 0.35, 0], {
@@ -176,13 +176,13 @@ export const Main: React.FC = () => {
 
       {/* Transition SFX at scene changes */}
       <Sequence from={105}>
-        <Audio src={SFX_URL} volume={0.15} />
+        <RemotionAudio src={SFX_URL} volume={0.15} />
       </Sequence>
       <Sequence from={270}>
-        <Audio src={SFX_URL} volume={0.12} />
+        <RemotionAudio src={SFX_URL} volume={0.12} />
       </Sequence>
       <Sequence from={430}>
-        <Audio src={SFX_URL} volume={0.12} />
+        <RemotionAudio src={SFX_URL} volume={0.12} />
       </Sequence>
     </>
   );
